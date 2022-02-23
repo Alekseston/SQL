@@ -1,6 +1,6 @@
 --1)Создать таблицу employees
---- id. serial,  primary key,
---- employee_name. Varchar(50), not null
+-- id. serial,  primary key,
+-- employee_name. Varchar(50), not null
 create table employees(
 	id serial primary key,
 	employee_name varchar(50)  not null
@@ -203,26 +203,26 @@ alter column role_name type varchar(30) using role_name::varchar(30);
 
 --10)Наполнить таблицу roles 20 строками из таблицы:
 insert into roles (role_name)
-values  ('Junior Python developer'),
-		('Middle Python developer'),
-		('Senior Python developer'),
-		('Junior Java developer'),
-		('Middle Java developer'),
-		('Senior Java developer'),
-		('Junior JavaScript developer'),
-		('Middle JavaScript developer'),
-		('Senior JavaScript developer'),
-		('Junior Manual QA engineer'),
-		('Middle Manual QA engineer'),
-		('Senior Manual QA engineer'),
-		('Project Manager'),
-		('Designer'),
-		('HR'),
-		('CEO'),
-		('Sales manager'),
-		('Junior Automation QA engineer'),
-		('Middle Automation QA engineer'),
-		('Senior Automation QA engineer');
+values('Junior Python developer'),
+('Middle Python developer'),
+('Senior Python developer'),
+('Junior Java developer'),
+('Middle Java developer'),
+('Senior Java developer'),
+('Junior JavaScript developer'),
+('Middle JavaScript developer'),
+('Senior JavaScript developer'),
+('Junior Manual QA engineer'),
+('Middle Manual QA engineer'),
+('Senior Manual QA engineer'),
+('Project Manager'),
+('Designer'),
+('HR'),
+('CEO'),
+('Sales manager'),
+('Junior Automation QA engineer'),
+('Middle Automation QA engineer'),
+('Senior Automation QA engineer');
 
 --11)Создать таблицу roles_employee
 --- id. Serial  primary key,
@@ -288,10 +288,4 @@ values	(1, floor(random()*(20-1+1))+1),
 		(40, floor(random()*(20-1+1))+1);
 
 select * from employees;
-
 select * from roles;
-
-
-
-				
-
