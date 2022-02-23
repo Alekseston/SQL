@@ -288,6 +288,7 @@ values	(1, floor(random()*(20-1+1))+1),
 		(40, floor(random()*(20-1+1))+1);
 
 select * from employees;
+
 select * from roles;
 
 
