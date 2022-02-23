@@ -1,11 +1,11 @@
---1)Создать таблицу employees
+--1)РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ employees
 -- id. serial,  primary key,
 -- employee_name. Varchar(50), not null
 create table employees(
 	id serial primary key,
 	employee_name varchar(50)  not null
 );
---2)Наполнить таблицу employees 70 строками.
+--2)РќР°РїРѕР»РЅРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ employees 70 СЃС‚СЂРѕРєР°РјРё.
 insert into employees (employee_name)
 values  ('Pam'),
 		('Elizabeth'),
@@ -77,19 +77,19 @@ values  ('Pam'),
 		('Sadie_Mcdougall'),
 		('Gerald_Gross'),
 		('Frederick_Bumbrey');
---проверяем таблицу
+--РїСЂРѕРІРµСЂСЏРµРј С‚Р°Р±Р»РёС†Сѓ
 select * from employees  ; 
 
---3)Создать таблицу salary
+--3)РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ salary
 -- id. Serial  primary key,
 -- monthly_salary. Int, not null
 create table salary(
 	id Serial primary key,
 	monthly_salary int not null
 );
---проверяем таблицу
+--РїСЂРѕРІРµСЂСЏРµРј С‚Р°Р±Р»РёС†Сѓ
 select * from salary; 
-/*4)Наполнить таблицу salary строками:
+/*4)РќР°РїРѕР»РЅРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ salary СЃС‚СЂРѕРєР°РјРё:
 - 1000
 - 1100
 - 1200
@@ -126,7 +126,7 @@ values(1900),
 	  (2300),
 	  (2400),
 	  (2500);
-/*6)Создать таблицу employee_salary
+/*6)РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ employee_salary
 - id. Serial  primary key,
 - employee_id. Int, not null, unique
 - salary_id. Int, not null*/
@@ -137,10 +137,10 @@ create table employee_salary(
 
 );
 drop table employee_salary cascade;
---проверяем таблицу
+--РїСЂРѕРІРµСЂСЏРµРј С‚Р°Р±Р»РёС†Сѓ
 select * from employee_salary;
-/*Наполнить таблицу employee_salary 40 строками:
-- в 10 строк из 40 вставить несуществующие employee_id
+/*РќР°РїРѕР»РЅРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ employee_salary 40 СЃС‚СЂРѕРєР°РјРё:
+- РІ 10 СЃС‚СЂРѕРє РёР· 40 РІСЃС‚Р°РІРёС‚СЊ РЅРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ employee_id
  */
 insert into employee_salary(employee_id, salary_id)
 values	(71, floor(random()*(16-1+1))+1),
@@ -184,24 +184,24 @@ values	(71, floor(random()*(16-1+1))+1),
 		(29, floor(random()*(16-1+1))+1),	
 		(30, floor(random()*(16-1+1))+1);
 	
---8)Создать таблицу roles
+--8)РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ roles
 --- id. Serial  primary key,
 --- role_name. int, not null, unique
---сначала удаляем существующую таблицу:
+--СЃРЅР°С‡Р°Р»Р° СѓРґР°Р»СЏРµРј СЃСѓС‰РµСЃС‚РІСѓСЋС‰СѓСЋ С‚Р°Р±Р»РёС†Сѓ:
 drop table roles cascade;
 
 	create table roles(
 	id serial primary key,
 	role_name int not null unique
 ); 
---проверяем таблицу
+--РїСЂРѕРІРµСЂСЏРµРј С‚Р°Р±Р»РёС†Сѓ
 select * from roles;
 
---9)Поменять тип столба role_name с int на varchar(30)
+--9)РџРѕРјРµРЅСЏС‚СЊ С‚РёРї СЃС‚РѕР»Р±Р° role_name СЃ int РЅР° varchar(30)
 alter  table roles 
 alter column role_name type varchar(30) using role_name::varchar(30);
 
---10)Наполнить таблицу roles 20 строками из таблицы:
+--10)РќР°РїРѕР»РЅРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ roles 20 СЃС‚СЂРѕРєР°РјРё РёР· С‚Р°Р±Р»РёС†С‹:
 insert into roles (role_name)
 values('Junior Python developer'),
 ('Middle Python developer'),
@@ -224,12 +224,12 @@ values('Junior Python developer'),
 ('Middle Automation QA engineer'),
 ('Senior Automation QA engineer');
 
---11)Создать таблицу roles_employee
+--11)РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ roles_employee
 --- id. Serial  primary key,
---- employee_id. Int, not null, unique (внешний ключ для таблицы employees, поле id)
---- role_id. Int, not null (внешний ключ для таблицы roles, поле id)
+--- employee_id. Int, not null, unique (РІРЅРµС€РЅРёР№ РєР»СЋС‡ РґР»СЏ С‚Р°Р±Р»РёС†С‹ employees, РїРѕР»Рµ id)
+--- role_id. Int, not null (РІРЅРµС€РЅРёР№ РєР»СЋС‡ РґР»СЏ С‚Р°Р±Р»РёС†С‹ roles, РїРѕР»Рµ id)
 
---удаление таблицы
+--СѓРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС†С‹
 drop table roles_employee cascade;
 
 create table roles_employee(
@@ -241,10 +241,10 @@ create table roles_employee(
 		foreign key (role_id)
 		references roles(id)
 );
---проверяем таблицу
+--РїСЂРѕРІРµСЂСЏРµРј С‚Р°Р±Р»РёС†Сѓ
 select * from roles_employee;
 
---12)Наполнить таблицу roles_employee 40 строками:
+--12)РќР°РїРѕР»РЅРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ roles_employee 40 СЃС‚СЂРѕРєР°РјРё:
 insert into roles_employee(employee_id, role_id)
 values	(1, floor(random()*(20-1+1))+1),
 		(2, floor(random()*(20-1+1))+1),
