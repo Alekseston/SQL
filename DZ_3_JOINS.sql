@@ -1,14 +1,6 @@
 /*SQL HomeWork 2. Joins
 
-Подключится к 
-Host: 159.69.151.133
-Port: 5056
-DB: подключение к той таблице где делали DDL операции
-User: подключение к тем пользователем каким делали DDL операции
-Pass: 123
-
 Если для какого-то кейса надо сделать дополнительную таблицу, наполнить её данными, то делайте )*/
-
 
 --1. Вывести всех работников чьи зарплаты есть в базе, вместе с зарплатами.
 select
@@ -35,8 +27,7 @@ select
 monthly_salary ,employee_name, employee_id  from salary 
 	left join employee_salary es on salary.id=es.salary_id
 	left join employees e on es.employee_id =e.id
-	where employee_id is null or employee_name is NULL
-;
+	where employee_id is null or employee_name is NULL;
 select monthly_salary, employee_name ,employee_id  from employees e 
 	full outer join employee_salary es on e.id=es.employee_id
 	right join salary s on s.id=es.salary_id
@@ -59,9 +50,7 @@ select
 monthly_salary ,employee_name  from salary 
 	join employee_salary es on salary.id=es.salary_id 
 	left join employees e  on es.employee_id=e.id
-	where employee_name is NULL
-;
-
+	where employee_name is NULL;
 --4. Вывести все зарплатные позиции  меньше 2000 но работник по ним не назначен. (ЗП есть, но не понятно кто её получает.)
 	select
 monthly_salary from salary where monthly_salary not in
@@ -247,15 +236,3 @@ join employee_salary es on e.id=es.employee_id
 join salary s on s.id=es.salary_id
 where monthly_salary in(1100,1500,2000) 
 order by monthly_salary;
-
-
-	
-
-
-	
-	
-
-	
-	
-
-
